@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.unla.Grupo16OO22023.helpers.ViewRouteHelper;
 
 @Controller
+@PreAuthorize("hasRole('ROLE_1')")
 @RequestMapping("/dispositivos")
 public class DispositivoController {
 	
-	@PreAuthorize("hasRole('ROLE_1')")
+
 	@GetMapping("/listadodispositivos")
 	public String crear() {
 		return ViewRouteHelper.DISP_LISTADO;
