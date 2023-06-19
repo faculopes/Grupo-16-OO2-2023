@@ -17,4 +17,11 @@ public class DispositivoLucesAutomaticasModel extends DispositivoModel {
 		this.medicionLucesAutomaticas = medicionLucesAutomaticas;
 	}
 
+	public DispositivoLucesAutomaticasModel(long idDispositivo, String nombre, ZonaModel zona, boolean activo,
+			boolean baja) {
+		super(idDispositivo, nombre, zona, activo, baja);
+	}
+	
+	
+
 }
