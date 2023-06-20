@@ -9,10 +9,6 @@ import com.unla.Grupo16OO22023.models.DispositivoLucesAutomaticasModel;
 
 @Component("dispositivoLucesAutomaticasConverter")
 public class DispositivoLucesAutomaticasConverter {
-	
-	@Autowired
-	@Qualifier("medicionLucesAutomaticasConverter")
-	private MedicionLucesAutomaticasConverter medicionLucesAutomaticasConverter;
 
 	@Autowired
 	@Qualifier("zonaConverter")

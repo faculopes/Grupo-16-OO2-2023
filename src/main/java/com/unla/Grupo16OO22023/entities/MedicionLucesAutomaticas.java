@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -31,7 +33,17 @@ public class MedicionLucesAutomaticas {
 	private boolean hayPersonas;
 	
 	@Column
+	private boolean hayLuz;
+	
+	@ManyToOne
+	@JoinColumn(name = "dispositivoLucesAutomaticasId")
+	private DispositivoLucesAutomaticas dispositivoLucesAutomaticas;
+	
+	@Column
 	private LocalDateTime fechaHora;
+	
+	@Column
+	private boolean procesado;
 	
 	@Column(name="createdat")
 	@CreationTimestamp
@@ -41,12 +53,18 @@ public class MedicionLucesAutomaticas {
 	@UpdateTimestamp
 	private LocalDateTime updateAt;
 
-
-	public MedicionLucesAutomaticas(long idMedicionLucesAutomaticas, boolean hayPersonas, LocalDateTime fechaHora) {
+	public MedicionLucesAutomaticas(long idMedicionLucesAutomaticas, boolean hayPersonas, boolean hayLuz,
+			DispositivoLucesAutomaticas dispositivoLucesAutomaticas, LocalDateTime fechaHora, boolean procesado) {
 		super();
 		this.idMedicionLucesAutomaticas = idMedicionLucesAutomaticas;
 		this.hayPersonas = hayPersonas;
+		this.hayLuz = hayLuz;
+		this.dispositivoLucesAutomaticas = dispositivoLucesAutomaticas;
 		this.fechaHora = fechaHora;
+		this.procesado = procesado;
 	}
+
+
+
 
 }

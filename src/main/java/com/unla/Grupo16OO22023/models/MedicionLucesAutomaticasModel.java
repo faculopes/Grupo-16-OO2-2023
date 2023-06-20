@@ -12,15 +12,24 @@ import lombok.Setter;
 public class MedicionLucesAutomaticasModel {
 	
 	private long idMedicionLucesAutomaticas;
+	private DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas;
 	private boolean hayPersonas;
+	private boolean hayLuz;
 	private LocalDateTime fechaHora;
+	private boolean procesado;
 	
-	public MedicionLucesAutomaticasModel(long idMedicionLucesAutomaticas, boolean hayPersonas,
-			LocalDateTime fechaHora) {
+	public MedicionLucesAutomaticasModel(long idMedicionLucesAutomaticas,
+			DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas, boolean hayPersonas, boolean hayLuz,
+			LocalDateTime fechaHora, boolean procesado) {
 		super();
 		this.idMedicionLucesAutomaticas = idMedicionLucesAutomaticas;
+		this.dispositivoLucesAutomaticas = dispositivoLucesAutomaticas;
 		this.hayPersonas = hayPersonas;
+		this.hayLuz = hayLuz;
 		this.fechaHora = fechaHora;
+		this.procesado = procesado;
 	}
+	
+	
 
 }

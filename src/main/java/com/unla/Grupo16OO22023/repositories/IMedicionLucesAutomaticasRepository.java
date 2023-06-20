@@ -11,5 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface IMedicionLucesAutomaticasRepository extends JpaRepository<MedicionLucesAutomaticas, Serializable> {
 	
 	public abstract MedicionLucesAutomaticas findByidMedicionLucesAutomaticas(int id);
+	public abstract MedicionLucesAutomaticas findTopByOrderByIdMedicionLucesAutomaticasDesc();
 
 }
