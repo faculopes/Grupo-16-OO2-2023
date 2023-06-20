@@ -1,5 +1,6 @@
 package com.unla.Grupo16OO22023.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,7 +21,9 @@ import lombok.Setter;
 @PrimaryKeyJoinColumn(name = "idDispositivoLucesAutomaticas")
 public class DispositivoLucesAutomaticas extends Dispositivo{
 	
-
+	@Column
+	private String Aula;
+	
 	@ManyToOne
 	@JoinColumn(name = "idMedicionLucesAutomaticas")
 	@Nullable
@@ -32,9 +35,13 @@ public class DispositivoLucesAutomaticas extends Dispositivo{
 		this.medicionLucesAutomaticas = medicionLucesAutomaticas;
 	}
 
-	public DispositivoLucesAutomaticas(long idDispositivo, String nombre, Zona zona, boolean activo, boolean baja) {
+	public DispositivoLucesAutomaticas(long idDispositivo, String nombre, Zona zona, boolean activo, boolean baja,
+			String aula) {
 		super(idDispositivo, nombre, zona, activo, baja);
+		Aula = aula;
 	}
+
+	
 	
 	
 	

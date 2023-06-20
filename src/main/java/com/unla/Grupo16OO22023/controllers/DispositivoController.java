@@ -65,7 +65,9 @@ public class DispositivoController {
 	// Formulario para dar de alta un dispositivo de LucesAutomaticas
 	@GetMapping("/formularioDispositivoLucesAutomaticas")
 	public String formularioDispositivoLucesAutomaticas(Model model) {
-		List<Zona> zonasPredeterminadas = zonaService.getAll();
+		List<Zona> zonas = zonaService.getAll();
+		List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
+		
 		model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
 		model.addAttribute("dispositivoLucesAutomaticas", new DispositivoLucesAutomaticasModel());
 		return ViewRouteHelper.DISP_FORMULARIO_LUCES_AUTOMATICAS;
@@ -101,7 +103,8 @@ public class DispositivoController {
 	// Formulario para editar un dispositivo de LucesAutomaticas
 	@GetMapping("/formularioEditarDispositivoLucesAutomaticas/{id}")
 	public String editarDispositivoLucesAutomaticas(@PathVariable("id")int id, Model model) {
-		List<Zona> zonasPredeterminadas = zonaService.getAll();
+		List<Zona> zonas = zonaService.getAll();
+		List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
 		model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
 		
 		DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas = dispositivoLucesAutomaticasService.traerPorId(id);

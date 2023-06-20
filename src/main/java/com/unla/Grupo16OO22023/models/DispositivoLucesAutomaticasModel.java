@@ -1,5 +1,7 @@
 package com.unla.Grupo16OO22023.models;
 
+import javax.validation.constraints.Size;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,6 +10,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class DispositivoLucesAutomaticasModel extends DispositivoModel {
+	
+	@Size(min=3,max=50,message="El nombre del aula tiene que tener de 3 a 50 caracteres.")
+	private String Aula;
 	
 	private MedicionLucesAutomaticasModel medicionLucesAutomaticas;
 
@@ -18,9 +23,11 @@ public class DispositivoLucesAutomaticasModel extends DispositivoModel {
 	}
 
 	public DispositivoLucesAutomaticasModel(long idDispositivo, String nombre, ZonaModel zona, boolean activo,
-			boolean baja) {
+			boolean baja, String aula) {
 		super(idDispositivo, nombre, zona, activo, baja);
+		Aula = aula;
 	}
+
 	
 	
 

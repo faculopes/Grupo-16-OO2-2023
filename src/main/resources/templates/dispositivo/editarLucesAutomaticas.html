@@ -38,7 +38,7 @@
 			<ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dispositivos/">Dispositivos</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/reportes/reporteslistado">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/reportes/listadoreportes">Reportes</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">LogOut</a></li>
 
 			</ul>
@@ -71,6 +71,12 @@
                                 th:selected="${zona.idZona == dispositivoLucesAutomaticas.zona.idZona}"></option>
                         
                         </select>
+								<div class="mb-3">
+						<p>
+							AULA: <input type="text" class="form-control" th:field="*{aula}" />
+						</p>
+						<p th:if="${#fields.hasErrors('aula')}" th:errors="*{aula}">
+						</p>
 					</div>
 					
 						<div class="mb-3">

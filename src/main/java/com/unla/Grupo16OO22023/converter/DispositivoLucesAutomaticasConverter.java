@@ -21,13 +21,13 @@ public class DispositivoLucesAutomaticasConverter {
 	public DispositivoLucesAutomaticasModel entityToModel(DispositivoLucesAutomaticas dispositivoLucesAutomaticas) {
 		return new DispositivoLucesAutomaticasModel(dispositivoLucesAutomaticas.getIdDispositivo(), 
 				dispositivoLucesAutomaticas.getNombre(), zonaConverter.entityToModel(dispositivoLucesAutomaticas.getZona()),
-				dispositivoLucesAutomaticas.isActivo(), dispositivoLucesAutomaticas.isBaja());
+				dispositivoLucesAutomaticas.isActivo(), dispositivoLucesAutomaticas.isBaja(),dispositivoLucesAutomaticas.getAula() );
 	}
 	
 	public DispositivoLucesAutomaticas modelToEntity(DispositivoLucesAutomaticasModel dispositivoLucesAutomaticasModel) {
 		return new DispositivoLucesAutomaticas(dispositivoLucesAutomaticasModel.getIdDispositivo(), 
 				dispositivoLucesAutomaticasModel.getNombre(), zonaConverter.modelToEntity(dispositivoLucesAutomaticasModel.getZona()),
-				dispositivoLucesAutomaticasModel.isActivo(), dispositivoLucesAutomaticasModel.isBaja());
+				dispositivoLucesAutomaticasModel.isActivo(), dispositivoLucesAutomaticasModel.isBaja(),dispositivoLucesAutomaticasModel.getAula());
 	}
 
 }

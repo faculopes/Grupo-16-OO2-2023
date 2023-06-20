@@ -38,7 +38,7 @@
 			<ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dispositivos/">Dispositivos</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/reportes/reporteslistado">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/reportes/listadoreportes">Reportes</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">LogOut</a></li>
 
 			</ul>
@@ -60,6 +60,8 @@
 					NOMBRE: <span th:text="${dispositivoLucesAutomaticas.nombre}" /> </p>
 				<p class="card-text">
 					ZONA: <span th:text="${dispositivoLucesAutomaticas.zona.nombre}" /> </p>
+									<p class="card-text">
+					AULA: <span th:text="${dispositivoLucesAutomaticas.aula}" /> </p>
 
 
 		
