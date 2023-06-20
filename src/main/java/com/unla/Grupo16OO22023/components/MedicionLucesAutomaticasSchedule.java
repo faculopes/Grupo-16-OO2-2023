@@ -24,13 +24,13 @@ public class MedicionLucesAutomaticasSchedule {
 		MedicionLucesAutomaticas ultimaMedicion = medicionLucesAutomaticasRepository.findTopByOrderByIdMedicionLucesAutomaticasDesc();
 		if(ultimaMedicion != null) {
 			if((ultimaMedicion.isProcesado() == false)) {
-				if (((ultimaMedicion.isHayPersonas() == false) || (ultimaMedicion.isHayLuz() == true)) || ((ultimaMedicion.isHayPersonas() == true && ultimaMedicion.isHayLuz() == false )) ) {
+				if (ultimaMedicion.getDispositivoLucesAutomaticas().isBaja() == false) {
+				if (((ultimaMedicion.isHayPersonas() == false) || (ultimaMedicion.isHayLuzNatural() == true)) && ((ultimaMedicion.isLucesPrendidas() == true ))// Si hay que apagar las luces, y la luces no estan apagadas
+			     || ((ultimaMedicion.isHayPersonas() == true && ultimaMedicion.isHayLuzNatural() == false )) && (ultimaMedicion.isLucesPrendidas() == false)) { // Si hay que prender las luces, y la luces no estan prendidas
 					dispositivoLucesAutomaticasService.crearEvento(ultimaMedicion);
 					ultimaMedicion.setProcesado(true);
 					medicionLucesAutomaticasRepository.save(ultimaMedicion);
-				}}}
-
-
+				}}}}
 	}
 
 }

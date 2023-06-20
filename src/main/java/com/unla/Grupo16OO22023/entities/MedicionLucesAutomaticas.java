@@ -33,7 +33,7 @@ public class MedicionLucesAutomaticas {
 	private boolean hayPersonas;
 	
 	@Column
-	private boolean hayLuz;
+	private boolean hayLuzNatural;
 	
 	@ManyToOne
 	@JoinColumn(name = "dispositivoLucesAutomaticasId")
@@ -41,6 +41,9 @@ public class MedicionLucesAutomaticas {
 	
 	@Column
 	private LocalDateTime fechaHora;
+	
+	@Column
+	private boolean lucesPrendidas;
 	
 	@Column
 	private boolean procesado;
@@ -53,16 +56,19 @@ public class MedicionLucesAutomaticas {
 	@UpdateTimestamp
 	private LocalDateTime updateAt;
 
-	public MedicionLucesAutomaticas(long idMedicionLucesAutomaticas, boolean hayPersonas, boolean hayLuz,
-			DispositivoLucesAutomaticas dispositivoLucesAutomaticas, LocalDateTime fechaHora, boolean procesado) {
+	public MedicionLucesAutomaticas(long idMedicionLucesAutomaticas, boolean hayPersonas, boolean hayLuzNatural,
+			DispositivoLucesAutomaticas dispositivoLucesAutomaticas, LocalDateTime fechaHora, boolean lucesPrendidas,
+			boolean procesado) {
 		super();
 		this.idMedicionLucesAutomaticas = idMedicionLucesAutomaticas;
 		this.hayPersonas = hayPersonas;
-		this.hayLuz = hayLuz;
+		this.hayLuzNatural = hayLuzNatural;
 		this.dispositivoLucesAutomaticas = dispositivoLucesAutomaticas;
 		this.fechaHora = fechaHora;
+		this.lucesPrendidas = lucesPrendidas;
 		this.procesado = procesado;
 	}
+
 
 
 

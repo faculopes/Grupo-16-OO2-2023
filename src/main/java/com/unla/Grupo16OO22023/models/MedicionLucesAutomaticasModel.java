@@ -14,22 +14,26 @@ public class MedicionLucesAutomaticasModel {
 	private long idMedicionLucesAutomaticas;
 	private DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas;
 	private boolean hayPersonas;
-	private boolean hayLuz;
+	private boolean hayLuzNatural;
 	private LocalDateTime fechaHora;
 	private boolean procesado;
+	private boolean lucesPrendidas;
+	
 	
 	public MedicionLucesAutomaticasModel(long idMedicionLucesAutomaticas,
-			DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas, boolean hayPersonas, boolean hayLuz,
-			LocalDateTime fechaHora, boolean procesado) {
+			DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas, boolean hayPersonas, boolean hayLuzNatural,
+			LocalDateTime fechaHora, boolean procesado, boolean lucesPrendidas) {
 		super();
 		this.idMedicionLucesAutomaticas = idMedicionLucesAutomaticas;
 		this.dispositivoLucesAutomaticas = dispositivoLucesAutomaticas;
 		this.hayPersonas = hayPersonas;
-		this.hayLuz = hayLuz;
+		this.hayLuzNatural = hayLuzNatural;
 		this.fechaHora = fechaHora;
 		this.procesado = procesado;
+		this.lucesPrendidas = lucesPrendidas;
 	}
 	
+
 	
 
 }

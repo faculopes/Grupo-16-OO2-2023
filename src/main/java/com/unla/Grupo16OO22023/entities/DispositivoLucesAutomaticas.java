@@ -28,7 +28,7 @@ public class DispositivoLucesAutomaticas extends Dispositivo{
 	
 
 	@Nullable
-	@OneToMany(mappedBy = "dispositivoLucesAutomaticas",cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "dispositivoLucesAutomaticas",cascade = CascadeType.ALL)
 	private List<MedicionLucesAutomaticas> medicionesLucesAutomaticas;
 
 

@@ -79,11 +79,11 @@ public class DispositivoLucesAutomaticasService implements IDispositivoLucesAuto
 		LocalDateTime fechaHora = medicionLucesAutomaticas.getFechaHora();
 		
 		//Si no hay personas o hay luz se pagan las luces.
-		if( (medicionLucesAutomaticas.isHayPersonas() == false) || (medicionLucesAutomaticas.isHayLuz() == true)) {
+		if( (medicionLucesAutomaticas.isHayPersonas() == false) || (medicionLucesAutomaticas.isHayLuzNatural() == true)) {
 			descripcion= " Se apagaron las luces";
 		}
 		
-		if((medicionLucesAutomaticas.isHayPersonas() == true && medicionLucesAutomaticas.isHayLuz() == false )) {
+		if((medicionLucesAutomaticas.isHayPersonas() == true && medicionLucesAutomaticas.isHayLuzNatural() == false )) {
 			descripcion= " Se prendieron las luces";
 		}
 		
