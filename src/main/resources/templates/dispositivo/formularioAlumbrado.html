@@ -45,15 +45,59 @@
 		</div>
 	</nav>
 	<!-- Page Content-->
-	<div class="container-fluid p-0">
+<div class="container-fluid p-0">
 		<div class="card" style="width: 100%;">
 
 			<div class="card-body">
-				<h5 class="card-title">USUARIO NO PERMITIDO</h5>
-				<p class="card-text">Solo los usuarios Administrador tienen acceso.</p>
+				<h5 class="card-title">Datos Dispositivo Alumbrado</h5>
+				
+				<form action="#" th:action="@{/dispositivos/nuevoDispositivoAlumbrado}"
+					th:object="${dispositivoAlumbrado}" method="post" enctype="multipart/form-data">
+					
+										
+					<div class="mb-3">
+						<p>
+							NOMBRE: <input type="text" class="form-control"
+								th:field="*{nombre}" />
+						</p>
+						<p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+						</p>
+					</div>
+						<div class="mb-3">
+							
+							<label for="zona" class="form-label">ZONA</label>
+						<select name="zona.idZona">
+                        <option th:each="zona : ${zonasPredeterminadas}" th:value="${zona.idZona}" th:text="${zona.nombre} "></option>
+                        
+                        </select>
+					</div>
+					<div class="mb-3">
+						<p>
+							METROS: <input type="text" class="form-control"
+								th:field="*{metros}" />
+						</p>
+						<p th:if="${#fields.hasErrors('metros')}" th:errors="*{metros}">
+						</p>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Agregar</button>
+
+				</form>
+
 			</div>
 		</div>
-	</div> 
+		
+</div>
+
+
+					
+
+
+
+				
+			</div>
+		</div>
+	</div>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

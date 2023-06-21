@@ -4,3 +4,14 @@ insert into bd_grupo16_oo2.user (user.enabled ,user.password, user.username) val
 insert into bd_grupo16_oo2.user_role (user_role.role, user_role.user_id) values ("ROLE_1", 1) ;
 insert into bd_grupo16_oo2.user_role (user_role.role, user_role.user_id) values ("ROLE_2", 2) ;
 
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Jose Hernandez") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Juana Manso") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Arturo Jauterche") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Manuel Ugarte") ;
+
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Plaza Nuestra America") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Plaza de la Democracia") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Plaza de los Derechos Humanos") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Plaza de la Paz") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Plaza de la Justicia Social") ;
+insert into bd_grupo16_oo2.zona (zona.nombre) values ("Plaza del 10") ;

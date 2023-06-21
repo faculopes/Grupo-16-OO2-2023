@@ -55,5 +55,12 @@ public class Evento {
 		this.dispositivo = dispositivo;
 		this.fechaHora = fechaHora;
 	}
+	
+	public Evento(String descripcion, Dispositivo dispositivo, LocalDateTime fechaHora) {
+		super();
+		this.descripcion = descripcion;
+		this.dispositivo = dispositivo;
+		this.fechaHora = fechaHora;
+	}
 
 }
