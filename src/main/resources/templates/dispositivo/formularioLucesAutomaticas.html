@@ -45,18 +45,58 @@
 		</div>
 	</nav>
 	<!-- Page Content-->
-	<div class="container-fluid p-0">
-
-
+<div class="container-fluid p-0">
 		<div class="card" style="width: 100%;">
 
 			<div class="card-body">
-				<h5 class="card-title">Dispositivos cargados</h5>
-				<p class="card-text">Administracion de Dispositivos.</p>
+				<h5 class="card-title">Datos Dispositivo Luces Automaticas</h5>
+				
+				<form action="#" th:action="@{/dispositivos/nuevoDispositivoLucesAutomaticas}"
+					th:object="${dispositivoLucesAutomaticas}" method="post" enctype="multipart/form-data">
+					
+										
+					<div class="mb-3">
+						<p>
+							NOMBRE: <input type="text" class="form-control"
+								th:field="*{nombre}" />
+						</p>
+						<p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+						</p>
+					</div>
+						<div class="mb-3">
+							
+							<label for="zona" class="form-label">ZONA</label>
+						<select name="zona.idZona">
+                        <option th:each="zona : ${zonasPredeterminadas}" th:value="${zona.idZona}" th:text="${zona.nombre} "></option>
+                        
+                        </select>
+					</div>
+					<div class="mb-3">
+						<p>
+							AULA: <input type="text" class="form-control"
+								th:field="*{aula}" />
+						</p>
+						<p th:if="${#fields.hasErrors('aula')}" th:errors="*{aula}">
+						</p>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Agregar</button>
+
+				</form>
 
 			</div>
 		</div>
+		
+</div>
 
+
+					
+
+
+
+				
+			</div>
+		</div>
 	</div>
 	<!-- Bootstrap core JS-->
 	<script

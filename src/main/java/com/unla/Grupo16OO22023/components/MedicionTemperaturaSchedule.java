@@ -19,7 +19,6 @@ public class MedicionTemperaturaSchedule {
 
 	@Scheduled(fixedDelay = 5000) // Corre cada 15 segundos
 	public void processNewMediciones() {
-
 		MedicionTemperatura ultimaMedicion = medicionTemperaturaRepository.findTopByOrderByIdMedicionTemperaturaDesc();
 		if(ultimaMedicion != null) {
 			if((ultimaMedicion.isProcesado() == false)) {

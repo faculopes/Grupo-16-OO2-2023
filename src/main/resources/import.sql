@@ -8,3 +8,4 @@ insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Jose Hernandez")
 insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Juana Manso") ;
 insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Arturo Jauterche") ;
 insert into bd_grupo16_oo2.zona (zona.nombre) values ("Edificio Manuel Ugarte") ; 
+
