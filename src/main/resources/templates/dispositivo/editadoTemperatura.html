@@ -46,14 +46,29 @@
 	</nav>
 	<!-- Page Content-->
 	<div class="container-fluid p-0">
+
+
 		<div class="card" style="width: 100%;">
 
 			<div class="card-body">
-				<h5 class="card-title">USUARIO NO PERMITIDO</h5>
-				<p class="card-text">Solo los usuarios Administrador tienen acceso.</p>
+				<h5 class="card-title">Dispositivo Editado</h5>
+				<p class="card-text">Usted acaba de editar al sigueinte disposito:</p>
 			</div>
-		</div>
-	</div> 
+			</div>
+
+				<p class="card-text">
+					NOMBRE: <span th:text="${dispositivoTemperatura.nombre}" /> </p>
+				<p class="card-text">
+					ZONA: <span th:text="${dispositivoTemperatura.zona.nombre}" /> </p>
+				<p class="card-text">
+					AULA: <span th:text="${dispositivoTemperatura.aula}" /> </p>
+				<p class="card-text">
+					ACTIVO: <span th:text="${dispositivoTemperatura.activo}" /> </p>
+		
+	</div>
+				 </div>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dispositivos/temperatura">Volver al listado.</a></li>
+                </div>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

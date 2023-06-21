@@ -64,4 +64,15 @@ public class Dispositivo {
 		this.baja = baja;
 	}
 
+
+	public Dispositivo(String nombre, Zona zona, boolean activo, boolean baja) {
+		super();
+		this.nombre = nombre;
+		this.zona = zona;
+		this.activo = activo;
+		this.baja = baja;
+	}
+	
+	
+
 }
