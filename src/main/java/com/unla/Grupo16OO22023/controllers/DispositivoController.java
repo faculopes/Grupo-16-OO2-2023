@@ -72,10 +72,6 @@ public class DispositivoController {
 	@Qualifier("dispositivoLucesAutomaticasService")
 	private IDispositivoLucesAutomaticasService dispositivoLucesAutomaticasService;
 	
-	@Autowired
-	@Qualifier("zonaService")
-	private IZonaService zonaService;
-	
 	//Listado de dispositivos de LucesAutomaticas
 	@GetMapping("/lucesAutomaticas")
 	public ModelAndView listadoLucesAutomaticas() {
@@ -254,10 +250,5 @@ public class DispositivoController {
 			dispositivoTemperaturaService.baja(id);
 			return listadoTemperatura();
 		}
-		// MENU PRINCIPAL DE DISPOSITIVOS
-		@GetMapping("/")
-		public String crear() {
-			return ViewRouteHelper.DISPOSITIVOS;
-		} 
 
 }

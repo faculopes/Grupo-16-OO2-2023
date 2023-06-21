@@ -33,11 +33,4 @@ public class ZonaService implements IZonaService{
 		Zona zona = zonaRepository.findByidZona(id);
 		return zonaConverter.entityToModel(zona);
 	}
-<<<<<<< HEAD
-	
-
 }
-=======
-
-}
->>>>>>> origin/Dev
