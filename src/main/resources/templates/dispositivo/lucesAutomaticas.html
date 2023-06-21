@@ -46,14 +46,62 @@
 	</nav>
 	<!-- Page Content-->
 	<div class="container-fluid p-0">
+
+
 		<div class="card" style="width: 100%;">
 
 			<div class="card-body">
-				<h5 class="card-title">USUARIO NO PERMITIDO</h5>
-				<p class="card-text">Solo los usuarios Administrador tienen acceso.</p>
+				<h5 class="card-title">Dispositivos de Luces Automaticas</h5>
+				<p class="card-text">Administracion de dispositivos de Luces Automaticas.</p>
+			</div>
+		</div>	
+
+			
+			
+				<div class="subheading mb-5">
+                    Lista de dispostivos de Luces Automaticas.
+                 </div>	
+				<a href="/dispositivos/formularioDispositivoLucesAutomaticas" class="btn btn-primary">Agregar
+					dispositivos de Luces Automaticas</a>
+					<table class="table table-sm">
+					<thead>
+
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">NOMBRE</th>
+							<th scope="col">ZONA</th>
+							<th scope="col">AULA</th>
+							<th scope="col">ACTIVO</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+
+						<tr th:each="d : ${listaDispositivosLucesAutomaticas}">
+							<td th:text="${d.idDispositivo}"></td>
+							<td th:text="${d.nombre}"></td>
+							<td th:text="${d.zona.nombre}"></td>
+							<td th:text="${d.aula}"></td>
+							<td th:text="${d.activo}"></td>
+							
+							<td><a th:href="@{/dispositivos/formularioEditarDispositivoLucesAutomaticas/} + ${d.idDispositivo}"
+								th:text="'Editar'" title="Editar"></a></td>
+
+							<td><a th:href="@{/dispositivos/bajaDispositivoLucesAutomaticas/} + ${d.idDispositivo}"
+								th:text="'Dar de Baja'" title="Dar de Baja"></a></td>
+
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
 			</div>
 		</div>
-	</div> 
+	</div>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
