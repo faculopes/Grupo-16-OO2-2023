@@ -1,6 +1,7 @@
 package com.unla.Grupo16OO22023.models;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
