@@ -13,11 +13,15 @@ public class MedicionCortinaModel {
 	
 	private long idMedicionCortina;
 	private LocalDateTime fechaHora;
+	private LocalTime hora;
+	private boolean procesado;
 	
-	public MedicionCortinaModel(long idMedicionCortina, LocalDateTime fechaHora) {
+	public MedicionCortinaModel(long idMedicionCortina, LocalDateTime fechaHora, LocalTime hora, boolean procesado) {
 		super();
 		this.idMedicionCortina = idMedicionCortina;
 		this.fechaHora = fechaHora;
+		this.hora = hora;
+		this.procesado = procesado;
 	}
 
 
