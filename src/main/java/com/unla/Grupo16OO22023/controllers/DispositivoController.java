@@ -36,9 +36,10 @@ import com.unla.Grupo16OO22023.models.DispositivoTemperaturaModel;
 import com.unla.Grupo16OO22023.models.ZonaModel;
 import com.unla.Grupo16OO22023.services.IDispositivoTemperaturaService;
 import com.unla.Grupo16OO22023.services.IZonaService;
-
+import com.unla.Grupo16OO22023.models.DispositivoCortinaModel;
 import com.unla.Grupo16OO22023.models.DispositivoLucesAutomaticasModel;
 import com.unla.Grupo16OO22023.models.ZonaModel;
+import com.unla.Grupo16OO22023.services.IDispositivoCortinaService;
 import com.unla.Grupo16OO22023.services.IDispositivoLucesAutomaticasService;
 import com.unla.Grupo16OO22023.services.IZonaService;
 
@@ -52,6 +53,9 @@ public class DispositivoController {
 	@Autowired
 	@Qualifier("dispositivoTemperaturaService")
 	private IDispositivoTemperaturaService dispositivoTemperaturaService; 
+	@Autowired
+	@Qualifier("dispositivoCortinaService")
+	private IDispositivoCortinaService dispositivoCortinaService; 
 	// Formulario para dar de alta un dispositivo de LucesAutomaticas
 	
 
@@ -250,5 +254,92 @@ public class DispositivoController {
 			dispositivoTemperaturaService.baja(id);
 			return listadoTemperatura();
 		}
+		
+		
+	//PARTE BELU - CORTINA
+		@GetMapping("/cortina")
+		public ModelAndView listadoCortina() {
+			ModelAndView mV= new ModelAndView();
+			
+			mV.setViewName(ViewRouteHelper.DISP_LISTADO_CORTINA);
+			mV.addObject("listaDispositivosCortina", dispositivoCortinaService.getAll());
+			
+			return mV;
+		}
+		@GetMapping("/formularioCortina")
+		public String formularioCortina(Model model) {
+			List<Zona> zonas = zonaService.getAll();
+			List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
+			
+			model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
+			model.addAttribute("dispositivoCortina", new DispositivoCortinaModel());
+			return ViewRouteHelper.DISP_FORMULARIO_CORTINA;
+		}
+		// Se confirma el alta del dispositivo 
+		@PostMapping("/nuevoDispositivoCortina")
+		public ModelAndView nuevoDispositivoCortina(@Valid @ModelAttribute("dispositivoCortina")DispositivoCortinaModel dispositivoCortina,
+				BindingResult b, Model model) {
+			ModelAndView mV = new ModelAndView();
+			if(b.hasErrors()) {
+				List<Zona> zonas = zonaService.getAll();
+				List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
+				model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
+				mV.setViewName(ViewRouteHelper.DISP_FORMULARIO_CORTINA);
+			}else {
+			     long idZonaSeleccionada = dispositivoCortina.getZona().getIdZona();
+			     ZonaModel zonaSeleccionada = zonaService.getById(idZonaSeleccionada);	     
+			     dispositivoCortina.setZona(zonaSeleccionada);
+				 dispositivoCortina.setActivo(true);
+				 dispositivoCortina.setBaja(false);
+				dispositivoCortinaService.insertOrUpdate(dispositivoCortina);		
+				mV.setViewName(ViewRouteHelper.DISP_NUEVO_CORTINA);
+				mV.addObject("dispositivoCortina", dispositivoCortina);
 
+			}
+			return mV;
+		}
+		// Formulario para editar un dispositivo
+		@GetMapping("/formularioEditarCortina/{id}")
+		public String editarDispositivoCortina(@PathVariable("id")int id, Model model) {
+			List<Zona> zonas = zonaService.getAll();
+			List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
+			model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);			
+			DispositivoCortinaModel dispositivoCortina = dispositivoCortinaService.traerPorId(id);
+			model.addAttribute("dispositivoCortina", dispositivoCortina);		
+			return ViewRouteHelper.DISP_EDITAR_CORTINA;
+		}
+		
+		// Se confirma la modificacion del dispositivo
+		@PostMapping("/editadoDispositivoCortina")
+		public ModelAndView editadoDispositivoCortina(@Valid @ModelAttribute("dispositivoCortina")DispositivoCortinaModel dispositivoCortina,
+				BindingResult b, Model model) {
+			ModelAndView mV = new ModelAndView();
+			
+			if(b.hasErrors()) {
+				List<Zona> zonas = zonaService.getAll();
+				List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
+				model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
+				mV.setViewName(ViewRouteHelper.DISP_EDITAR_CORTINA);
+			}else {
+				long idZonaSeleccionada = dispositivoCortina.getZona().getIdZona();
+				ZonaModel zonaSeleccionada = zonaService.getById(idZonaSeleccionada);
+				dispositivoCortina.setZona(zonaSeleccionada);
+				if(dispositivoCortina.isActivo() == true) {
+					dispositivoCortina.setBaja(false);
+				}else {
+					dispositivoCortina.setBaja(true);
+				}
+				long idDispositivo = dispositivoCortina.getIdDispositivo();
+				dispositivoCortina.setIdDispositivo(idDispositivo);
+				dispositivoCortinaService.insertOrUpdate(dispositivoCortina);
+				mV.setViewName(ViewRouteHelper.DISP_EDITADO_CORTINA);
+				mV.addObject("dispositivoCortina", dispositivoCortina);
+			}
+			return mV;
+		}
+		@GetMapping("/bajaDispositivoCortina/{id}")
+		public ModelAndView bajaDispositivoCortina (@PathVariable("id")long id, Model model) {
+			dispositivoCortinaService.baja(id);
+			return listadoCortina();
+		}
 }

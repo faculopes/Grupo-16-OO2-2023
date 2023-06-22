@@ -45,25 +45,51 @@
 		</div>
 	</nav>
 	<!-- Page Content-->
-	<div class="container-fluid p-0">
-
-
+<div class="container-fluid p-0">
 		<div class="card" style="width: 100%;">
 
 			<div class="card-body">
-				<h5 class="card-title">Dispositivos</h5>
-				<p class="card-text">Administracion de Dispositivos.</p>
-		</div>
-	</div>
-			 <div class="subheading mb-5">
-                    Seleccione un dispositivo.
-                 </div>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dispositivos/lucesAutomaticas">Luces Automaticas</a></li>
-                </div>
-                  </div>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dispositivos/cortina">Cortina</a></li>
-                </div>
+				<h5 class="card-title">Datos a editar de Dispositivo Cortina</h5>
+				
+				<form action="#" th:action="@{/dispositivos/editadoDispositivoCortina}"
+					th:object="${dispositivoCortina}" method="post" enctype="multipart/form-data">
+					
+					<input type="hidden" th:field="*{idDispositivo}" />
+					
+					<div class="mb-3">
+						<p>
+							NOMBRE: <input type="text" class="form-control" th:field="*{nombre}" />
+						</p>
+						<p th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+						</p>
+					</div>
+						<div class="mb-3">
+							
+							<label for="zona" class="form-label">ZONA</label>
+						<select name="zona.idZona">
+                        <option th:each="zona : ${zonasPredeterminadas}" th:value="${zona.idZona}" th:text="${zona.nombre} "
+                                th:selected="${zona.idZona == dispositivoCortina.zona.idZona}"></option>
+                        
+                        </select>
+								<div class="mb-3">
+					</div>
+					
+						<div class="mb-3">
+						<label for="zona" class="form-label">ACTIVAR</label>
+						<select name="activo" th:disabled="${dispositivoCortina.activo}">
+                        <option value="true" th:selected="${dispositivoCortina.activo}">TRUE</option>
+                        <option value="false" th:selected="${!dispositivoCortina.activo}">FALSE</option>
+						</select>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">EDITAR</button>
+
+				</form>
+
 			</div>
+		</div>
+		
+</div>
 	<!-- Bootstrap core JS-->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

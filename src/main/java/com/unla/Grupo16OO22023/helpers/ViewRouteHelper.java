@@ -24,4 +24,11 @@ public class ViewRouteHelper {
 	public final static String DISP_EDITAR_TEMPERATURA = "dispositivo/editarTemperatura";
 	public final static String DISP_EDITADO_TEMPERATURA = "dispositivo/editadoTemperatura";
 
+	//Dispositivo Cortina
+	public final static String DISP_LISTADO_CORTINA = "dispositivo/cortina";
+	public final static String DISP_FORMULARIO_CORTINA = "dispositivo/formularioCortina";
+	public final static String DISP_NUEVO_CORTINA = "dispositivo/nuevoCortina";
+	public final static String DISP_EDITAR_CORTINA = "dispositivo/editarCortina";
+	public final static String DISP_EDITADO_CORTINA = "dispositivo/editadoCortina";
+	
 }
