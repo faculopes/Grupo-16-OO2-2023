@@ -162,7 +162,7 @@ public class DispositivoController {
 		}
 		
 		@GetMapping("/bajaDispositivoAlumbrado/{id}")
-		public ModelAndView bajaDispositivoLucesAutomaticas (@PathVariable("id")long id, Model model) {
+		public ModelAndView bajaDispositivoAlumbrado (@PathVariable("id")long id, Model model) {
 			dispositivoAlumbradoService.remove(id);
 			return listadoAlumbrado();
 		}
@@ -195,7 +195,6 @@ public class DispositivoController {
 	public String formularioDispositivoLucesAutomaticas(Model model) {
 		List<Zona> zonas = zonaService.getAll();
 		List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
-		
 		model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
 		model.addAttribute("dispositivoLucesAutomaticas", new DispositivoLucesAutomaticasModel());
 		return ViewRouteHelper.DISP_FORMULARIO_LUCES_AUTOMATICAS;
@@ -204,10 +203,13 @@ public class DispositivoController {
 	// Se confirma el alta del dispositivo de LucesAutomaticas
 	@PostMapping("/nuevoDispositivoLucesAutomaticas")
 	public ModelAndView nuevoDispositivoLucesAutomaticas(@Valid @ModelAttribute("dispositivoLucesAutomaticas")DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas,
-			BindingResult b) {
+			BindingResult b, Model model) {
 		ModelAndView mV = new ModelAndView();
 
 		if(b.hasErrors()) {
+			List<Zona> zonas = zonaService.getAll();
+			List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
+			model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
 			mV.setViewName(ViewRouteHelper.DISP_FORMULARIO_LUCES_AUTOMATICAS);
 
 		}else {
@@ -244,10 +246,13 @@ public class DispositivoController {
 	// Se confirma la modificacion del dispositivo de LucesAutomaticas
 	@PostMapping("/editadoDispositivoLucesAutomaticas")
 	public ModelAndView editadoDispositivoLucesAutomaticas(@Valid @ModelAttribute("dispositivoLucesAutomaticas")DispositivoLucesAutomaticasModel dispositivoLucesAutomaticas,
-			BindingResult b) {
+			BindingResult b, Model model) {
 		ModelAndView mV = new ModelAndView();
 		
 		if(b.hasErrors()) {
+			List<Zona> zonas = zonaService.getAll();
+			List<Zona> zonasPredeterminadas = zonas.subList(0, 4);
+			model.addAttribute("zonasPredeterminadas", zonasPredeterminadas);
 			mV.setViewName(ViewRouteHelper.DISP_EDITAR_LUCES_AUTOMATICAS);
 		}else {
 			Long idZonaSeleccionada = dispositivoLucesAutomaticas.getZona().getIdZona();
@@ -273,7 +278,14 @@ public class DispositivoController {
 		return mV;
 	}
 	
+	//Baja logica de dispositivoLucesAutomaticas
+	@GetMapping("/bajaDispositivoLucesAutomaticas/{id}")
+	public ModelAndView bajaDispositivoLucesAutomaticas (@PathVariable("id")long id, Model model) {
+		dispositivoLucesAutomaticasService.baja(id);
+		return listadoLucesAutomaticas();
+	}
 	
+	// MENU DE DISPOSITIVOS DE TEMPERATURA
 		@GetMapping("/temperatura")
 		public ModelAndView listadoTemperatura() {
 			ModelAndView mV= new ModelAndView();
@@ -292,7 +304,7 @@ public class DispositivoController {
 			model.addAttribute("dispositivoTemperatura", new DispositivoTemperaturaModel());
 			return ViewRouteHelper.DISP_FORMULARIO_TEMPERATURA;
 		}
-		// Se confirma el alta del dispositivo de LucesAutomatica 
+		// Se confirma el alta del dispositivo de Temperatura 
 		@PostMapping("/nuevoDispositivoTemperatura")
 		public ModelAndView nuevoDispositivoTemperatura(@Valid @ModelAttribute("dispositivoTemperatura")DispositivoTemperaturaModel dispositivoTemperatura,
 				BindingResult b) {
@@ -312,7 +324,7 @@ public class DispositivoController {
 			}
 			return mV;
 		}
-		// Formulario para editar un dispositivo de LucesAutomaticas
+		// Formulario para editar un dispositivo de Temperatura
 		@GetMapping("/formularioEditarDispositivoTemperatura/{id}")
 		public String editarDispositivoTemperatura(@PathVariable("id")int id, Model model) {
 			List<Zona> zonas = zonaService.getAll();
@@ -323,7 +335,7 @@ public class DispositivoController {
 			return ViewRouteHelper.DISP_EDITAR_TEMPERATURA;
 		}
 		
-		// Se confirma la modificacion del dispositivo de LucesAutomaticas
+		// Se confirma la modificacion del dispositivo de Temperatura
 		@PostMapping("/editadoDispositivoTemperatura")
 		public ModelAndView editadoDispositivoTemperatura(@Valid @ModelAttribute("dispositivoTemperatura")DispositivoTemperaturaModel dispositivoTemperatura,
 				BindingResult b) {

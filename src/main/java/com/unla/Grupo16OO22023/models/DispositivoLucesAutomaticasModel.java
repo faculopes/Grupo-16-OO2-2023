@@ -13,11 +13,17 @@ import lombok.Setter;
 @NoArgsConstructor
 public class DispositivoLucesAutomaticasModel extends DispositivoModel {
 	
-	@Size(min=3,max=50,message="El nombre del aula tiene que tener de 3 a 50 caracteres.")
+	@Size(min=2,max=50,message="El nombre del aula tiene que tener entre 3 y 50 caracteres.")
 	private String Aula;
 	
 	private List<MedicionLucesAutomaticasModel> medicionesLucesAutomaticas;
 
+	public DispositivoLucesAutomaticasModel(long idDispositivo, String nombre, ZonaModel zona, boolean activo,
+			boolean baja, String aula, List<MedicionLucesAutomaticasModel> medicionesLucesAutomaticas) {
+		super(idDispositivo, nombre, zona, activo, baja);
+		Aula = aula;
+		this.medicionesLucesAutomaticas = medicionesLucesAutomaticas;
+	}
 
 	public DispositivoLucesAutomaticasModel(long idDispositivo, String nombre, ZonaModel zona, boolean activo,
 			boolean baja, String aula) {
@@ -27,14 +33,8 @@ public class DispositivoLucesAutomaticasModel extends DispositivoModel {
 
 
 
-	public DispositivoLucesAutomaticasModel(long idDispositivo, String nombre, ZonaModel zona, boolean activo,
-			boolean baja,
-			@Size(min = 3, max = 50, message = "El nombre del aula tiene que tener de 3 a 50 caracteres.") String aula,
-			List<MedicionLucesAutomaticasModel> medicionesLucesAutomaticas) {
-		super(idDispositivo, nombre, zona, activo, baja);
-		Aula = aula;
-		this.medicionesLucesAutomaticas = medicionesLucesAutomaticas;
-	}
+
+
 
 	
 	
