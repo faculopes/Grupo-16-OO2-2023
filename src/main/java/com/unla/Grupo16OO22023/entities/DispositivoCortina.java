@@ -1,7 +1,6 @@
 package com.unla.Grupo16OO22023.entities;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.time.LocalTime;
 import java.util.List;
 

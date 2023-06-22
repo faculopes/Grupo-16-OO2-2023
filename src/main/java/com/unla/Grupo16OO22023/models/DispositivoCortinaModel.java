@@ -1,11 +1,10 @@
 package com.unla.Grupo16OO22023.models;
 
-import java.time.LocalDateTime;
+
 import java.time.LocalTime;
 import java.util.List;
 
 import javax.validation.constraints.Size;
-import com.unla.Grupo16OO22023.entities.MedicionCortina;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
