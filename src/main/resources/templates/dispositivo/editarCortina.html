@@ -76,7 +76,7 @@
 					
 						<div class="mb-3">
 						<label for="zona" class="form-label">ACTIVAR</label>
-						<select name="activo" th:disabled="${dispositivoCortina.activo}">
+						<select name="activo">
                         <option value="true" th:selected="${dispositivoCortina.activo}">TRUE</option>
                         <option value="false" th:selected="${!dispositivoCortina.activo}">FALSE</option>
 						</select>

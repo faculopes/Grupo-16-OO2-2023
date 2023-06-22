@@ -81,7 +81,7 @@
 					
 						<div class="mb-3">
 						<label for="zona" class="form-label">ACTIVAR</label>
-						<select name="activo" th:disabled="${dispositivoTemperatura.activo}">
+						<select name="activo" >
                         <option value="true" th:selected="${dispositivoTemperatura.activo}">TRUE</option>
                         <option value="false" th:selected="${!dispositivoTemperatura.activo}">FALSE</option>
 						</select>

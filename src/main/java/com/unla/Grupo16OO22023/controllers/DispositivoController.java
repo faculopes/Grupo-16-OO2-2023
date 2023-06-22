@@ -264,6 +264,7 @@ public class DispositivoController {
 			}else {
 				dispositivoLucesAutomaticas.setBaja(true);
 			}
+			
 
 			Long idDispositivo = dispositivoLucesAutomaticas.getIdDispositivo();
 			dispositivoLucesAutomaticas.setIdDispositivo(idDispositivo);

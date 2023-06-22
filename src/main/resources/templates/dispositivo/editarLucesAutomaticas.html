@@ -79,12 +79,12 @@
 						</p>
 					</div>
 					
-						<div class="mb-3">
-						<label for="zona" class="form-label">ACTIVAR</label>
-						<select name="activo" th:disabled="${dispositivoLucesAutomaticas.activo}">
-                        <option value="true" th:selected="${dispositivoLucesAutomaticas.activo}">TRUE</option>
-                        <option value="false" th:selected="${!dispositivoLucesAutomaticas.activo}">FALSE</option>
-						</select>
+					<div class="mb-3">
+					    <label for="zona" class="form-label">ACTIVAR</label>
+					    <select name="activo">
+					        <option value="true" th:selected="${dispositivoLucesAutomaticas.activo}">TRUE</option>
+					        <option value="false" th:selected="${!dispositivoLucesAutomaticas.activo}">FALSE</option>
+					    </select>
 					</div>
 					
 					<button type="submit" class="btn btn-primary">EDITAR</button>
