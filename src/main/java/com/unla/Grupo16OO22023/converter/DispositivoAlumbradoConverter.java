@@ -1,4 +1,4 @@
-package com.unla.Grupo16OO22023.converters;
+package com.unla.Grupo16OO22023.converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,3 +26,4 @@ public class DispositivoAlumbradoConverter {
 			zonaConverter.modelToEntity(dispositivoAlumbradoModel.getZona()),dispositivoAlumbradoModel.isActivo(),dispositivoAlumbradoModel.isBaja(),dispositivoAlumbradoModel.getMetros());
 	}
 }
+

@@ -16,6 +16,23 @@ public class ViewRouteHelper {
 	public final static String DISP_EDITAR_ALUMBRADO = "dispositivo/editarAlumbrado";
 	public final static String DISP_EDITADO_ALUMBRADO = "dispositivo/editadoAlumbrado";
 	
+	
+	
+	
+	//Disositivo Luces Automaticas
+	public final static String DISP_LISTADO_LUCES_AUTOMATICAS = "dispositivo/lucesAutomaticas";
+
+	public final static String DISP_FORMULARIO_LUCES_AUTOMATICAS = "dispositivo/formularioLucesAutomaticas";
+	public final static String DISP_NUEVO_LUCES_AUTOMATICAS = "dispositivo/nuevoLucesAutomaticas";
+	public final static String DISP_EDITAR_LUCES_AUTOMATICAS = "dispositivo/editarLucesAutomaticas";
+	public final static String DISP_EDITADO_LUCES_AUTOMATICAS = "dispositivo/editadoLucesAutomaticas";
+	
 	public final static String REPORTES_LISTADO = "reporte/listadoReportes";
+	//Dispositivo Temperatura
+	public final static String DISP_LISTADO_TEMPERATURA = "dispositivo/temperatura";
+	public final static String DISP_FORMULARIO_TEMPERATURA = "dispositivo/formularioTemperatura";
+	public final static String DISP_NUEVO_TEMPERATURA = "dispositivo/nuevoTemperatura";
+	public final static String DISP_EDITAR_TEMPERATURA = "dispositivo/editarTemperatura";
+	public final static String DISP_EDITADO_TEMPERATURA = "dispositivo/editadoTemperatura";
 
 }

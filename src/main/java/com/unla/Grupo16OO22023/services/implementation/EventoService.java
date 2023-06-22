@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+
 import com.unla.Grupo16OO22023.entities.Evento;
 import com.unla.Grupo16OO22023.repositories.IEventoRepository;
 import com.unla.Grupo16OO22023.services.IEventoService;
@@ -22,4 +23,10 @@ public class EventoService implements IEventoService{
 		
 		return eventoRepository.findAll();	}
 	
+
+
+
+	
+
+
 }

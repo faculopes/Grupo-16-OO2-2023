@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.unla.Grupo16OO22023.converters.DispositivoAlumbradoConverter;
+import com.unla.Grupo16OO22023.converter.DispositivoAlumbradoConverter;
 import com.unla.Grupo16OO22023.entities.DispositivoAlumbrado;
 import com.unla.Grupo16OO22023.entities.Evento;
 import com.unla.Grupo16OO22023.entities.MedicionAlumbrado;
