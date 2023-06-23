@@ -31,13 +31,22 @@ Dispositivo Temperatura:
 
 Dispositivo Luces Automaticas:
 
--
+-- SE APAGAN LAS LUCES (no hay personas, hay luz natural, luces prendidas)
 
--
+insert into bd_grupo16_oo2.medicion_luces_automaticas (medicion_luces_automaticas.fecha_hora, medicion_luces_automaticas.hay_personas,
+medicion_luces_automaticas.hay_luz_natural, medicion_luces_automaticas.luces_prendidas, medicion_luces_automaticas.procesado,medicion_luces_automaticas.dispositivo_luces_automaticas_id) values
+('2023-06-20 16:06:05', false, true, true,false, 1);
 
--
+-- SE PRENDIERON LAS LUCES (hay personas, no hay luz natural, las luces estan apagadas)
 
--
+insert into bd_grupo16_oo2.medicion_luces_automaticas (medicion_luces_automaticas.fecha_hora, medicion_luces_automaticas.hay_personas,
+medicion_luces_automaticas.hay_luz_natural, medicion_luces_automaticas.luces_prendidas, medicion_luces_automaticas.procesado,medicion_luces_automaticas.dispositivo_luces_automaticas_id) values
+('2023-06-20 17:06:05', true, false, false,false, 1);
+
+-- NO CREA EVENTO (no hay presonas, hay luz natural, luces apagadas)
+insert into bd_grupo16_oo2.medicion_luces_automaticas (medicion_luces_automaticas.fecha_hora, medicion_luces_automaticas.hay_personas,
+medicion_luces_automaticas.hay_luz_natural, medicion_luces_automaticas.luces_prendidas, medicion_luces_automaticas.procesado,medicion_luces_automaticas.dispositivo_luces_automaticas_id) values
+('2023-06-20 08:30:00', false, true, false,false, 3);
 
 Dispositivo Cortina:
 
