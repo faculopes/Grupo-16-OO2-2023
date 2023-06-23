@@ -9,12 +9,13 @@ Usuario: usuario1  Contraseña: contra Rol: Administrador.
 Usuario: usuario2 Contraseña: contra Rol: Auditor.
 
 --------------------------------------------------------
-
+---------INFORMACION IMPORTANTE---------
 PARA INSERCION DE DATOS NECESARIOS EN BD:
 
-La primera vez que se corre el proyecto, en application.properties configurar spring.jpa.hibernate.ddl-auto en create.
+La primera vez que se corre el proyecto, en application.properties configurar spring.jpa.hibernate.ddl-auto en CREATE.
 Luego configurar con update para que no borren los registros ingresados.
 Los insert necesarios ya estan en el import.sql
+Primero se crean los dispositivos y despues se insertan las mediciones.
 
 --------------------------------------------------------
 En caso de querer replicar los eventos tal como se muestra en los videos se deben ejecutar las siguientes Query's.
@@ -54,19 +55,20 @@ Dispositivo Cortina:
 
 - INSERT INTO `bd_grupo16_oo2`.`medicion_cortina` (`fecha_hora`, `hora`,`procesado`, `dispositivo_cortina_id`) VALUES ('2023-06-22 23:01:00', '23:01:00', false, 1);
 
--
-
--
 
 Dispositivo Alumbrado:
 
--
+* SE APAGAN LAS LUCES (no hay personas, hay luz natural, luces prendidas)*
+insert into bd_grupo16_oo2.medicion_alumbrado (medicion_alumbrado.fecha_hora, medicion_alumbrado.hay_personas,
+medicion_alumbrado.hay_luz_natural, medicion_alumbrado.luces_prendidas, medicion_alumbrado.procesado,medicion_alumbrado.dispositivo_alumbrado) values
+(current_timestamp(), false, true, true,false, 1);
 
--
+* SE PRENDIERON LAS LUCES (hay personas, no hay luz natural, las luces estan apagadas)*
+insert into bd_grupo16_oo2.medicion_alumbrado (medicion_alumbrado.fecha_hora, medicion_alumbrado.hay_personas,
+medicion_alumbrado.hay_luz_natural, medicion_alumbrado.luces_prendidas, medicion_alumbrado.procesado,medicion_alumbrado.dispositivo_alumbrado) values
+(current_timestamp(), true, false, false,false, 1);
 
--
 
--
 
 -------------------------------------------------
 
