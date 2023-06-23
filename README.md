@@ -41,9 +41,9 @@ Dispositivo Luces Automaticas:
 
 Dispositivo Cortina:
 
--
+- INSERT INTO `bd_grupo16_oo2`.`medicion_cortina` (`fecha_hora`, `hora`, `procesado`, `dispositivo_cortina_id`) VALUES ('2023-06-22 09:01:00', '09:01:00', false, 1);
 
--
+- INSERT INTO `bd_grupo16_oo2`.`medicion_cortina` (`fecha_hora`, `hora`,`procesado`, `dispositivo_cortina_id`) VALUES ('2023-06-22 23:01:00', '23:01:00', false, 1);
 
 -
 
